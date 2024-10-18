@@ -2,9 +2,6 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "engines" : { 
-    "node" : ">=16.0.0 <17.0.0"
-  }
   "dependencies": {
     "@date-io/date-fns": "^2.16.0",
     "@emotion/react": "^11.10.5",
@@ -76,7 +73,7 @@
   "scripts": {
     "start": "react-scripts start",
     "dev": "react-scripts --openssl-legacy-provider start",
-    "build": "GENERATE_SOURCEMAP=false react-scripts build",
+    "build": "react-scripts --openssl-legacy-provider build",
     "builddev": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

@@ -243,6 +243,7 @@ const TicketListItemCustom = ({ ticket }) => {
     const { setCurrentTicket } = useContext(TicketsContext);
     const { user } = useContext(AuthContext);
 
+       
     const { get: getSetting } = useCompanySettings();
 
     useEffect(() => {
@@ -481,7 +482,7 @@ const TicketListItemCustom = ({ ticket }) => {
                             height: "50px",
                             borderRadius: "50%",
                         }}
-                        src={`${ticket?.contact?.urlPicture}`}
+                        src={`${ticket?.contact?.profilePicUrl}`}
 
                     />
                 </ListItemAvatar>

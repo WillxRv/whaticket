@@ -581,8 +581,6 @@ const MessagesList = ({
   };
 
   const checkMessageMedia = (message) => {
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
-    
     if (message.mediaType === "locationMessage" && message.body.split('|').length >= 2) {
       let locationParts = message.body.split('|')
       let imageLocation = locationParts[0]
@@ -620,28 +618,13 @@ const MessagesList = ({
     }
 
     if (message.mediaType === "audio") {
-      if (isIOS) {
-        message.mediaUrl = message.mediaUrl.replace("ogg", "mp3");
-
-        return (
-          <audio controls>
-            <source src={message.mediaUrl} type="audio/mp3"></source>
-          </audio>
-        );
-      } else {
-        return (
-          <audio controls>
-            <source src={message.mediaUrl} type="audio/ogg"></source>
-          </audio>
-        );
-      }
-      // return (
-      //   <AudioModal url={message.mediaUrl} />
-      //   // <audio controls>
-      //   //   <source src={message.mediaUrl} type="audio/ogg"></source>
-      //   //   {/* <source src={message.mediaUrl} type="audio/mp3"></source> */}
-      //   // </audio>
-      // );
+      return (
+        <AudioModal url={message.mediaUrl} />
+        // <audio controls>
+        //   <source src={message.mediaUrl} type="audio/ogg"></source>
+        //   {/* <source src={message.mediaUrl} type="audio/mp3"></source> */}
+        // </audio>
+      );
     }
 
     if (message.mediaType === "video") {
